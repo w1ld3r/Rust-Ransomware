@@ -1,3 +1,4 @@
+*.exe
 /target
 Cargo.lock
 yeet.markdown
