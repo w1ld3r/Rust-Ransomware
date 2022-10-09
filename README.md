@@ -9,22 +9,25 @@ This is a Windows ransomware I wrote 100% in Rust. The GUI for the ransomnote is
 ## 2. Overview of how it works
 
 
-This ransomware first checks if this is the first time it's running by checking the existence of a file called **encrypt_date.txt**. If this file exists, then this is not the first time the malware is run. 
+This ransomware first checks if this is the first time it's running by checking the existence of a file called **encrypt_date.txt**. If this file exists, then this is not the first time the malware is run.
 
 
-If the file does not exist, the malware starts the encryption process. 
+If the file does not exist, the malware starts the encryption process.
 
 
-First, it checks for admin privileges, and if the process does not have admin rights, it will attempt to elevate by asking the user's permission through UAC. 
+First, it checks for admin privileges, and if the process does not have admin rights, it will attempt to elevate by asking the user's permission through UAC.
 
 
-Second, after gaining admin privileges, it will add itself to the registry ***Software\Microsoft\Windows\CurrentVersion\Run*** to maintain persistence after the machine reboots. Since this malware runs every time the machine reboots, we need the file check above to know if we need to encrypt files or not. 
+Second, after gaining admin privileges, it will add itself to the registry ***Software\Microsoft\Windows\CurrentVersion\Run*** to maintain persistence after the machine reboots. Since this malware runs every time the machine reboots, we need the file check above to know if we need to encrypt files or not.
 
-Third, after adding itself to the registry, it will traverse and encrypt all personal files on the user's system and display the ransomnote. After encrypting, it will write the date into **encrypt_date.txt**. The encrypted files will have an extension of **.wilder** at the end. 
 
-If the machine reboots and is already encrypted, it will just display the ransomnote. The ransomnote will display the countdown 1 month from the time in **encrypt_date.txt**. Once the countdown is done, it will write *\x99\x99* into the file and restart the computer. 
+Third, after adding itself to the registry, it will traverse and encrypt all personal files on the user's system and display the ransomnote. After encrypting, it will write the date into **encrypt_date.txt**. The encrypted files will have an extension of **.wilder** at the end.
 
-Whenever the **encrypt_date.txt** is read and the bytes returned are *\x99\x99*, all the files will be deleted. 
+
+If the machine reboots and is already encrypted, it will just display the ransomnote. The ransomnote will display the countdown 1 month from the time in **encrypt_date.txt**. Once the countdown is done, it will write *\x99\x99* into the file and restart the computer.
+
+
+Whenever the **encrypt_date.txt** is read and the bytes returned are *\x99\x99*, all the files will be deleted.
 
 
 ## 3. How to install
